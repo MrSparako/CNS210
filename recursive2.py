@@ -7,13 +7,11 @@ def factorial(n):
         return n * factorial(n-1)
 
 Parser=argparse.ArgumentParser(description='Writes Fibonacci squence by the given number to a given file')
-Parser.add_argument('number',type=int,
-    help='number help')
-Parser.add_argument('file', type=str)
-print('test')
-args=Parser.parse_args(['number','file'])
-print(args)
-Filename=Parser.parse_args(['file'])
+Parser.add_argument('--number', dest='number', type=int, required=True, help='Number used to generate the sequence')
+Parser.add_argument('--file', dest='file',type=str, required=True, help='Name of the output file')
+args=vars(Parser.parse_args())
+Filename=args['file']
+Var=args['number']
 
 try: 
     ArbName=open(file=Filename,mode='x')
@@ -24,3 +22,4 @@ except:
     else:
         exit()
 print(factorial(Var),file=ArbName)
+ArbName.close
