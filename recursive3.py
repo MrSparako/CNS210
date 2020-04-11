@@ -18,7 +18,7 @@ except:
 
 count=0
 n1,n2=0,1
-fib='0, 1'
+fib='1'
 while count < Var:
     nth=n1+n2
     n1=n2
