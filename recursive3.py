@@ -5,7 +5,7 @@ Parser.add_argument('--number', dest='number', type=int, required=True, help='Nu
 Parser.add_argument('--file', dest='file',type=str, required=True, help='Name of the output file')
 args=vars(Parser.parse_args())
 Filename=args['file']
-Var=args['number']
+Var=args['number']-1
 
 try: 
     ArbName=open(file=Filename,mode='x')
@@ -26,4 +26,4 @@ while count < Var:
     count+=1
     fib=fib+', '+str(nth)
 print(fib,file=ArbName)
-ArbName.close
+ArbName.close 
